@@ -147,33 +147,33 @@
     </main>
 
     <script>
-        const buttons = document.querySelectorAll(".calculator-buttons button");
-        const inputField = document.querySelector(".calculator-screen input");
-    
-        buttons.forEach((button) => {
-            button.addEventListener("click", () => {
-            const buttonText = button.textContent;
-    
-            if (buttonText === "C") {
-                inputField.value = "";
-            } else if (buttonText === "⌫") {
-                inputField.value = inputField.value.slice(0, -1);
-            } else if (buttonText === "=") {
-                try {
-                const expression = inputField.value
-                    .replace(/×/g, "*")
-                    .replace(/÷/g, "/")
-                    .replace(/−/g, "-")
-                    .replace(/\^/g, "**");
-                inputField.value = eval(expression);
-                } catch {
-                inputField.value = "Error";
-                }
-            } else {
-                inputField.value += buttonText;
+      const buttons = document.querySelectorAll(".calculator-buttons button");
+      const inputField = document.querySelector(".calculator-screen input");
+
+      buttons.forEach((button) => {
+        button.addEventListener("click", () => {
+          const buttonText = button.textContent;
+
+          if (buttonText === "C") {
+            inputField.value = "";
+          } else if (buttonText === "⌫") {
+            inputField.value = inputField.value.slice(0, -1);
+          } else if (buttonText === "=") {
+            try {
+              const expression = inputField.value
+                .replace(/×/g, "*")
+                .replace(/÷/g, "/")
+                .replace(/−/g, "-")
+                .replace(/\^/g, "**");
+              inputField.value = eval(expression);
+            } catch {
+              inputField.value = "Error";
             }
-            });
+          } else {
+            inputField.value += buttonText;
+          }
         });
+      });
     </script>
   </body>
 </html>
